@@ -84,6 +84,11 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
             navigationItem.leftBarButtonItem?.setFont(font: YPConfig.fonts.leftBarButtonFont, forState: .normal)
         }
         setupRightBarButtonItem()
+        
+        if !YPImagePickerConfiguration.shared.video.showsCoverPicker {
+            coverBottomItem.isHidden = true
+            trimBottomItem.isHidden = true
+        }
     }
     
     override public func viewDidAppear(_ animated: Bool) {

@@ -269,6 +269,8 @@ public struct YPConfigVideo {
 	/// so, the trimmer step becomes optional.
     /// - SeeAlso: [trimmerMaxDuration](x-source-tag://trimmerMaxDuration)
     public var automaticTrimToTrimmerMaxDuration: Bool = false
+    
+    public var showsCoverPicker: Bool = false
 }
 
 /// Encapsulates gallery specific settings.
