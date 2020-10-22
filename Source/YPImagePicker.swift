@@ -22,13 +22,12 @@ open class YPImagePicker: UINavigationController {
     }
     
     private var _didFinishPicking: (([YPMediaItem], Bool) -> Void)?
-    private var _didFinishPickingWithText: (([YPMediaItem], String, Bool) -> Void)?
+    public var didFinishPickingWithText: (([YPMediaItem], String, Bool) -> Void)?
+    
     public func didFinishPicking(completion: @escaping (_ items: [YPMediaItem], _ cancelled: Bool) -> Void) {
         _didFinishPicking = completion
     }
-    public func didFinishPickingWithText(completion: @escaping (_ items: [YPMediaItem], _ text: String, _ cancelled: Bool) -> Void) {
-        _didFinishPickingWithText = completion
-    }
+    
     public weak var imagePickerDelegate: YPImagePickerDelegate?
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -43,7 +42,7 @@ open class YPImagePicker: UINavigationController {
     }
     
     private func didSelect(items: [YPMediaItem], text: String) {
-        _didFinishPickingWithText?(items, text, false)
+        didFinishPickingWithText?(items, text, false)
     }
     
     let loadingView = YPLoadingView()

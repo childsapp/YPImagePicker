@@ -29,7 +29,7 @@ public struct YPImagePickerConfiguration {
     
     public init() {}
     
-    public var isInstaFeedFlow: Bool = true
+    public var isInstaFeedFlow: Bool = false
     
     /// Scroll to change modes, defaults to true
     public var isScrollToChangeModesEnabled = true

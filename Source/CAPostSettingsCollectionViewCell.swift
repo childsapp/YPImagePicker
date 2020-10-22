@@ -10,6 +10,7 @@ import UIKit
 
 final class CAPostSettingsCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView = .init()
+    let removeButton: UIButton = .init(type: .system)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,12 +26,19 @@ extension CAPostSettingsCollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         
+        removeButton.translatesAutoresizingMaskIntoConstraints = false
+        removeButton.setImage(imageFromBundle("yp_close_icon").withRenderingMode(.alwaysOriginal), for: .normal)
+        
         contentView.addSubview(imageView)
+        contentView.addSubview(removeButton)
         NSLayoutConstraint.activate([
+            removeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6),
+            removeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -6),
+            
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
         ])
     }
 }

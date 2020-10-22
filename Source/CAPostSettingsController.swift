@@ -44,8 +44,6 @@ final class CAPostSettingsController: YPScrollViewController {
         cvLayout.itemSize = .init(width: 112, height: 112)
         cvLayout.scrollDirection = .horizontal
         
-        scrollView.keyboardDismissMode = .onDrag
-        
         collectionView = .init(frame: .zero, collectionViewLayout: cvLayout)
         collectionView.contentInset = .init(top: 0, left: 24, bottom: 0, right: 24)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -129,10 +127,23 @@ private extension CAPostSettingsController {
         textView.resignFirstResponder()
     }
     
+    @objc func handleRemoveItem(_ sender: UIButton) {
+        items.remove(at: sender.tag)
+        if items.isEmpty {
+            navigationController?.popViewController(animated: true)
+        } else {
+            collectionView.reloadData()
+        }
+    }
+    
     func adjustDoneButton() {
-        let formattedText: String = textView.text.components(separatedBy: .whitespacesAndNewlines).joined()
-        let isPostAllowed: Bool = !formattedText.isEmpty && !items.isEmpty
-        navigationItem.rightBarButtonItem = isPostAllowed ? rightBarButtonItem : nil
+        if textView.text == "Добавьте описание" {
+            navigationItem.rightBarButtonItem = nil
+        } else {
+            let formattedText: String = textView.text.components(separatedBy: .whitespacesAndNewlines).joined()
+            let isPostAllowed: Bool = !formattedText.isEmpty && !items.isEmpty
+            navigationItem.rightBarButtonItem = isPostAllowed ? rightBarButtonItem : nil
+        }
     }
 }
 
@@ -150,6 +161,8 @@ extension CAPostSettingsController: UICollectionViewDataSource, UICollectionView
         case .photo(let photo): cell.imageView.image = photo.image
         case .video(let video): cell.imageView.image = video.thumbnail
         }
+        cell.removeButton.tag = indexPath.item
+        cell.removeButton.addTarget(self, action: #selector(handleRemoveItem(_:)), for: .touchUpInside)
         return cell
     }
     
