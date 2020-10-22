@@ -98,20 +98,32 @@ class YPAssetViewContainer: UIView {
     // MARK: - Square button
 
     @objc public func squareCropButtonTapped() {
-        if let zoomableView = zoomableView {
-            let z = zoomableView.zoomScale
-            shouldCropToSquare = (z >= 1 && z < zoomableView.squaredZoomScale)
+        if YPConfig.isInstaFeedFlow, isMultipleSelection {
+            shouldCropToSquare = true
+        } else {
+            if let zoomableView = zoomableView {
+                let z = zoomableView.zoomScale
+                shouldCropToSquare = (z >= 1 && z < zoomableView.squaredZoomScale)
+            }
         }
         zoomableView?.fitImage(shouldCropToSquare, animated: true)
+        
+        if YPConfig.isInstaFeedFlow, isMultipleSelection {
+            zoomableView?.minimumZoomScale = zoomableView?.squaredZoomScale ?? 1
+        } else {
+            zoomableView?.minimumZoomScale = 1
+        }
     }
     
     public func refreshSquareCropButton() {
-        if onlySquare {
-            squareCropButton.isHidden = true
-        } else {
-            if let image = zoomableView?.assetImageView.image {
-                let isImageASquare = image.size.width == image.size.height
-                squareCropButton.isHidden = isImageASquare
+        if !YPConfig.isInstaFeedFlow {
+            if onlySquare {
+                squareCropButton.isHidden = true
+            } else {
+                if let image = zoomableView?.assetImageView.image {
+                    let isImageASquare = image.size.width == image.size.height
+                    squareCropButton.isHidden = isImageASquare
+                }
             }
         }
         
@@ -125,6 +137,10 @@ class YPAssetViewContainer: UIView {
     /// Use this to update the multiple selection mode UI state for the YPAssetViewContainer
     public func setMultipleSelectionMode(on: Bool) {
         isMultipleSelection = on
+        if YPConfig.isInstaFeedFlow {
+            squareCropButton.isHidden = on
+            squareCropButtonTapped()
+        }
         let image = on ? YPConfig.icons.multipleSelectionOnIcon : YPConfig.icons.multipleSelectionOffIcon
         multipleSelectionButton.setImage(image, for: .normal)
         refreshSquareCropButton()
