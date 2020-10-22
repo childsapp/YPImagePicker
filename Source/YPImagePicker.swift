@@ -22,8 +22,12 @@ open class YPImagePicker: UINavigationController {
     }
     
     private var _didFinishPicking: (([YPMediaItem], Bool) -> Void)?
+    private var _didFinishPickingWithText: (([YPMediaItem], String, Bool) -> Void)?
     public func didFinishPicking(completion: @escaping (_ items: [YPMediaItem], _ cancelled: Bool) -> Void) {
         _didFinishPicking = completion
+    }
+    public func didFinishPickingWithText(completion: @escaping (_ items: [YPMediaItem], _ text: String, _ cancelled: Bool) -> Void) {
+        _didFinishPickingWithText = completion
     }
     public weak var imagePickerDelegate: YPImagePickerDelegate?
     
@@ -36,6 +40,10 @@ open class YPImagePicker: UINavigationController {
     // Multiple selection becomes available as an opt-in.
     private func didSelect(items: [YPMediaItem]) {
         _didFinishPicking?(items, false)
+    }
+    
+    private func didSelect(items: [YPMediaItem], text: String) {
+        _didFinishPickingWithText?(items, text, false)
     }
     
     let loadingView = YPLoadingView()
@@ -76,6 +84,14 @@ override open func viewDidLoad() {
             transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             transition.type = CATransitionType.fade
             self?.view.layer.add(transition, forKey: nil)
+            
+            if YPConfig.isInstaFeedFlow {
+                let vc: CAPostSettingsController = .init(items: items) { [weak self] _, items, text in
+                    self?.didSelect(items: items, text: text)
+                }
+                self?.pushViewController(vc, animated: true)
+                return
+            }
             
             // Multiple items flow
             if items.count > 1 {
