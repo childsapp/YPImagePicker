@@ -31,6 +31,8 @@ public struct YPImagePickerConfiguration {
     
     public var isInstaFeedFlow: Bool = false
     
+    public var showDescriptionScreenInInstaFeedFlow: Bool = true
+    
     /// Scroll to change modes, defaults to true
     public var isScrollToChangeModesEnabled = true
     

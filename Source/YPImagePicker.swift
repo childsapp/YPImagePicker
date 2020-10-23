@@ -71,6 +71,7 @@ override open func viewDidLoad() {
         super.viewDidLoad()
         picker.didClose = { [weak self] in
             self?._didFinishPicking?([], true)
+            self?.didFinishPickingWithText?([], "", true)
         }
         viewControllers = [picker]
         setupLoadingView()
@@ -85,10 +86,14 @@ override open func viewDidLoad() {
             self?.view.layer.add(transition, forKey: nil)
             
             if YPConfig.isInstaFeedFlow {
-                let vc: CAPostSettingsController = .init(items: items) { [weak self] _, items, text in
-                    self?.didSelect(items: items, text: text)
+                if YPConfig.showDescriptionScreenInInstaFeedFlow {
+                    let vc: CAPostSettingsController = .init(items: items) { [weak self] _, items, text in
+                        self?.didSelect(items: items, text: text)
+                    }
+                    self?.pushViewController(vc, animated: true)
+                } else {
+                    self?.didSelect(items: items, text: "")
                 }
-                self?.pushViewController(vc, animated: true)
                 return
             }
             
