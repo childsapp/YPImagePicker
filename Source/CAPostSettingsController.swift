@@ -31,7 +31,7 @@ final class CAPostSettingsController: YPScrollViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Новый пост"
+        title = ypLocalized("addition_insta_new_post")
         view.backgroundColor = .white
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
         navigationItem.rightBarButtonItem?.setFont(font: YPConfig.fonts.rightBarButtonFont, forState: .disabled)
@@ -66,7 +66,7 @@ final class CAPostSettingsController: YPScrollViewController {
         textView.textContainer.heightTracksTextView = true
         textView.font = .systemFont(ofSize: 16)
         textView.textColor = .gray
-        textView.text = "Добавьте описание"
+        textView.text = ypLocalized("addition_insta_add_a_description")
         textView.isScrollEnabled = false
         textView.delegate = self
         textView.inputAccessoryView = toolBar
@@ -137,7 +137,7 @@ private extension CAPostSettingsController {
     }
     
     func adjustDoneButton() {
-        if textView.text == "Добавьте описание" {
+        if textView.text == ypLocalized("addition_insta_add_a_description") {
             navigationItem.rightBarButtonItem = nil
         } else {
             let formattedText: String = textView.text.components(separatedBy: .whitespacesAndNewlines).joined()
@@ -173,7 +173,7 @@ extension CAPostSettingsController: UICollectionViewDataSource, UICollectionView
 
 extension CAPostSettingsController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Добавьте описание" {
+        if textView.text == ypLocalized("addition_insta_add_a_description") {
             textView.text = ""
             textView.textColor = .black
         }
@@ -181,7 +181,7 @@ extension CAPostSettingsController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Добавьте описание"
+            textView.text = ypLocalized("addition_insta_add_a_description")
             textView.textColor = .gray
         }
     }

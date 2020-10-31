@@ -1,0 +1,25 @@
+"YPImagePickerAlbums" = "Albomlar";
+"YPImagePickerCancel" = "Bekor qilish";
+"YPImagePickerCover" = "Muqova";
+"YPImagePickerCrop" = "Kesish";
+"YPImagePickerDone" = "Bajarildi";
+"YPImagePickerFilter" = "Filtr";
+"YPImagePickerLibrary" = "Kutubxona";
+"YPImagePickerNext" = "Keyingi";
+"YPImagePickerOk" = "OK";
+"YPImagePickerPermissionDeniedPopupCancel" = "Bekor qilish";
+"YPImagePickerPermissionDeniedPopupGrantPermission" = "Ruxsatlarni sozlash";
+"YPImagePickerPermissionDeniedPopupMessage" = "Iltimos, kirishga ruxsat bering";
+"YPImagePickerPermissionDeniedPopupTitle" = "Ruxsatlar etarli emas";
+"YPImagePickerPhoto" = "Surat";
+"YPImagePickerProcessing" = "Qayta ishlash ..";
+"YPImagePickerSave" = "Saqlash";
+"YPImagePickerTrim" = "Kesish";
+"YPImagePickerVideo" = "Video";
+"YPImagePickerVideoDurationTitle" = "Video uzunligi";
+"YPImagePickerVideoTooLong" = "Iltimos, %@ soniyadan qisqa videoni tanlang";
+"YPImagePickerVideoTooShort" = "Video %@ soniyadan ko'proq bo'lishi kerak";
+"YPImagePickerWarningItemsLimit" = "Maksimal %d ta rasm yoki video";
+
+"addition_insta_add_a_description" = "Ta'rif qo'shing";
+"addition_insta_new_post" = "Yangi xabar";

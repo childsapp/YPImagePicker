@@ -1,0 +1,25 @@
+"YPImagePickerAlbums" = "Альбомдар";
+"YPImagePickerCancel" = "Болдырмау";
+"YPImagePickerCover" = "Қақпақ";
+"YPImagePickerCrop" = "Кесу";
+"YPImagePickerDone" = "Дайын";
+"YPImagePickerFilter" = "Сүзгі";
+"YPImagePickerLibrary" = "Кітапхана";
+"YPImagePickerNext" = "Келесі";
+"YPImagePickerOk" = "Жақсы";
+"YPImagePickerPermissionDeniedPopupCancel" = "Болдырмау";
+"YPImagePickerPermissionDeniedPopupGrantPermission" = "Рұқсаттарды конфигурациялау";
+"YPImagePickerPermissionDeniedPopupMessage" = "Рұқсат етіңіз";
+"YPImagePickerPermissionDeniedPopupTitle" = "Рұқсаттар жеткіліксіз";
+"YPImagePickerPhoto" = "Фото";
+"YPImagePickerProcessing" = "Өңдеу ..";
+"YPImagePickerSave" = "Сақтау";
+"YPImagePickerTrim" = "Кесу";
+"YPImagePickerVideo" = "Бейне";
+"YPImagePickerVideoDurationTitle" = "Бейненің ұзындығы";
+"YPImagePickerVideoTooLong" = "%@ секундтан қысқа бейнені таңдаңыз";
+"YPImagePickerVideoTooShort" = "Бейнелер %@ секундтан артық болуы керек";
+"YPImagePickerWarningItemsLimit" = "Ең көбі %d сурет немесе видео";
+
+"addition_insta_add_a_description" = "Сипаттама қосыңыз";
+"addition_insta_new_post" = "Жаңа хабарлама";

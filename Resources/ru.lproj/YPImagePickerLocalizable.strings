@@ -20,3 +20,6 @@
 "YPImagePickerVideoTooLong" = "Выберите видео короче %@ секунд";
 "YPImagePickerVideoTooShort" = "Видео должно быть длиннее %@ секунд";
 "YPImagePickerWarningItemsLimit" = "Максимум %d фото или видео";
+
+"addition_insta_add_a_description" = "Добавьте описание";
+"addition_insta_new_post" = "Новый пост";

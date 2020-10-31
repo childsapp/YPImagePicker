@@ -181,6 +181,8 @@
 		99D1DC2A1F9788930047F0E0 /* YPImagePickerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImagePickerConfiguration.swift; sourceTree = "<group>"; };
 		A7FD716620755C2D0044A8E8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/YPImagePickerLocalizable.strings; sourceTree = "<group>"; };
 		AA69BCF122E601D100FBB925 /* YPDeviceOrientationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPDeviceOrientationHelper.swift; sourceTree = "<group>"; };
+		C22044F4254E0D5300E5B8AB /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/YPImagePickerLocalizable.strings; sourceTree = "<group>"; };
+		C22044F7254E0D8800E5B8AB /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/YPImagePickerLocalizable.strings; sourceTree = "<group>"; };
 		C266324425419DBB00F00F59 /* CAPostSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAPostSettingsController.swift; sourceTree = "<group>"; };
 		C26632462541A43600F00F59 /* CAPostSettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAPostSettingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C26632482541A65600F00F59 /* YPScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPScrollViewController.swift; sourceTree = "<group>"; };
@@ -556,6 +558,8 @@
 				th,
 				vi,
 				pl,
+				kk,
+				uz,
 			);
 			mainGroup = 52412A891CA6114A0073C4BE;
 			productRefGroup = 52412A941CA6114A0073C4BE /* Products */;
@@ -717,6 +721,8 @@
 				2577138123B1E09300BB9C86 /* th */,
 				2577138223B1E09E00BB9C86 /* vi */,
 				78B58D3524C5DB5200B83153 /* pl */,
+				C22044F4254E0D5300E5B8AB /* kk */,
+				C22044F7254E0D8800E5B8AB /* uz */,
 			);
 			name = YPImagePickerLocalizable.strings;
 			sourceTree = "<group>";
