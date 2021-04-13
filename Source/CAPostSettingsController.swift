@@ -33,6 +33,7 @@ final class CAPostSettingsController: YPScrollViewController {
         super.viewDidLoad()
         title = ypLocalized("addition_insta_new_post")
         view.backgroundColor = .white
+        navigationItem.rightBarButtonItem = rightBarButtonItem
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
         navigationItem.rightBarButtonItem?.setFont(font: YPConfig.fonts.rightBarButtonFont, forState: .disabled)
         navigationItem.rightBarButtonItem?.setFont(font: YPConfig.fonts.rightBarButtonFont, forState: .normal)
@@ -114,7 +115,7 @@ final class CAPostSettingsController: YPScrollViewController {
                 }
             }
         }
-        didFinishHandler?(self, items, textView.text)
+        didFinishHandler?(self, items, textView.text == ypLocalized("addition_insta_add_a_description") ? "" : textView.text)
     }
     
     required init?(coder: NSCoder) {
@@ -141,7 +142,7 @@ private extension CAPostSettingsController {
             navigationItem.rightBarButtonItem = nil
         } else {
             let formattedText: String = textView.text.components(separatedBy: .whitespacesAndNewlines).joined()
-            let isPostAllowed: Bool = !formattedText.isEmpty && !items.isEmpty
+            let isPostAllowed: Bool = !items.isEmpty
             navigationItem.rightBarButtonItem = isPostAllowed ? rightBarButtonItem : nil
         }
     }
@@ -190,3 +191,4 @@ extension CAPostSettingsController: UITextViewDelegate {
         adjustDoneButton()
     }
 }
+
